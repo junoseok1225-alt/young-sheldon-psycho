@@ -1,87 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Understanding Young Sheldon</title>
-  <style>
-    :root{
-      --purple:#6a5acd;
-      --deep:#483d8b;
-      --paper:#ffffff;
-      --ink:#333;
-      --panel:#f4f3ff;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      line-height:1.6;
-      background:linear-gradient(135deg,#fefefe,#e6f0ff);
-    }
-    header{
-      background:linear-gradient(90deg,var(--purple),#7b68ee);
-      color:#fff;
-      text-align:center;
-      padding:2.4rem 1rem;
-      border-bottom:5px solid var(--deep);
-      box-shadow:0 4px 14px rgba(0,0,0,.25);
-    }
-    header h1{margin:0 0 .4rem;font-size:2.4rem}
-    header p{margin:0;opacity:.9;font-style:italic}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Understanding Young Sheldon</title>
+<style>
+  :root{
+    --purple:#6a5acd; --deep:#483d8b; --paper:#ffffff; --ink:#222; --panel:#f4f3ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);line-height:1.6;background:linear-gradient(135deg,#fbfbff,#e6efff)}
+  header{background:linear-gradient(90deg,var(--purple),#7b68ee);color:#fff;text-align:center;padding:2.25rem 1rem;border-bottom:5px solid var(--deep);box-shadow:0 4px 16px rgba(0,0,0,.25)}
+  header h1{margin:0 0 .35rem;font-size:2.35rem}
+  header p{margin:0;opacity:.9;font-style:italic}
 
-    nav{
-      position:sticky;top:0;z-index:10;
-      background:#fff;
-      display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;
-      padding:1rem;
-      box-shadow:0 2px 8px rgba(0,0,0,.08);
-    }
-    nav button{
-      border:0;outline:0;cursor:pointer;
-      padding:.6rem 1rem;border-radius:10px;
-      color:var(--purple);background:#f2f0ff;font-weight:700;
-      transition:.25s;
-    }
-    nav button:hover,nav button[aria-selected="true"]{
-      background:var(--purple);color:#fff;transform:translateY(-1px);
-    }
+  nav{position:sticky;top:0;z-index:20;background:#fff;display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  nav button{border:0;background:#efeefe;color:var(--purple);font-weight:700;padding:.6rem 1rem;border-radius:10px;cursor:pointer;transition:.25s}
+  nav button:hover,nav button[aria-selected="true"]{background:var(--purple);color:#fff;transform:translateY(-1px)}
 
-    main{
-      max-width:1000px;margin:2rem auto;background:var(--paper);
-      border-radius:16px;padding:2rem;
-      box-shadow:0 6px 22px rgba(0,0,0,.10);
-    }
-    .intro{font-size:1.05rem;margin:0 0 1.25rem}
-    #hero{
-      width:260px;border-radius:12px;margin:1rem auto 0;display:block;
-      box-shadow:0 4px 12px rgba(0,0,0,.15);transition:transform .25s;
-    }
-    #hero:hover{transform:scale(1.03)}
+  main{max-width:1040px;margin:2rem auto;background:var(--paper);border-radius:16px;padding:2rem;box-shadow:0 8px 26px rgba(0,0,0,.10)}
+  .intro{margin:0 0 1.25rem;font-size:1.05rem}
+  #hero{display:block;width:260px;border-radius:12px;margin:1rem auto 0;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 
-    /* Panels */
-    .approach{
-      display:none; /* hidden by default */
-      margin-top:1.75rem;padding:1.25rem 1.25rem 1rem;
-      background:var(--panel);border-left:6px solid var(--purple);
-      border-radius:12px;animation:fade .35s ease;
-    }
-    .approach h3{margin:.2rem 0 0;color:var(--deep)}
-    .lead{margin:.25rem 0 1rem;color:#555}
+  .approach{display:none;margin-top:1.75rem;padding:1.25rem 1.25rem 1rem;background:var(--panel);border-left:6px solid var(--purple);border-radius:12px;animation:fade .35s ease}
+  .approach h3{margin:.2rem 0 0;color:var(--deep)}
+  .lead{margin:.25rem 0 .9rem;color:#555}
 
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin:1rem 0 1rem}
-    .gallery img{
-      width:100%;display:block;border-radius:10px;
-      box-shadow:0 2px 8px rgba(0,0,0,.14);
-    }
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;margin:0 0 1rem}
+  .gallery img{width:100%;display:block;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-    footer{
-      text-align:center;margin:2rem 0 1.5rem;color:#666;font-size:.9rem;
-    }
-    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-  </style>
+  footer{text-align:center;margin:2rem 0 1.2rem;color:#666;font-size:.9rem}
+</style>
 </head>
 <body>
 
@@ -100,8 +50,8 @@
 
 <main>
   <p class="intro">
-    Young Sheldon Cooper is a child prodigy whose behaviour can be analysed using different psychological approaches. 
-    Click an approach above and a detailed explanation will appear here for readers.
+    Young Sheldon Cooper is a child prodigy whose behaviour can be analysed using different psychological approaches.
+    Click an approach above — a detailed explanation with pictures will appear below.
   </p>
   <img id="hero" src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Young Sheldon smiling in a bow tie" loading="lazy" />
 
@@ -111,32 +61,22 @@
     <p class="lead">How rewards, punishments, and conditioning shape Sheldon’s actions.</p>
 
     <div class="gallery">
-      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon at school" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon answering in class" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking carefully" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon reading books" loading="lazy">
     </div>
 
     <p>
-      The behaviourist approach explains behaviour in terms of what is observable and measurable: actions that increase or decrease in frequency because of their consequences. 
-      In <em>Young Sheldon</em>, praise from teachers after a correct answer functions as positive reinforcement, making it more likely he will volunteer in future lessons and persist with difficult problems. 
-      At home, access to favoured activities—extra time with science books, permission to run an experiment, choosing dinner—often follows cooperation with chores or family rules. 
-      These contingent rewards strengthen compliance without needing to appeal to emotions or abstract reasoning.
+      The behaviourist approach explains behaviour through observable learning: actions are strengthened by rewards (reinforcement) and weakened by consequences (punishment). In <em>Young Sheldon</em>, praise from teachers after a correct answer is powerful positive reinforcement. It raises the likelihood that Sheldon will participate regularly, attempt harder questions, and persist despite setbacks. At home, contingencies are everywhere. Permission to run an experiment, extra time to read, or choosing dinner often follows cooperation with chores or politeness. These rewards function as operant conditioning in action, quietly training habits without long lectures about values.
     </p>
     <p>
-      Operant conditioning also helps us understand what Sheldon avoids.  
-      When sarcasm earns disapproval or when pedantic corrections upset his siblings, the social “punishment” temporarily suppresses those responses. 
-      Teachers sometimes remove privileges (negative punishment), and Sheldon learns to moderate behaviours that cause conflict. 
-      Over time, stimulus control emerges: certain contexts (a physics lab, the dinner table, church) cue different behavioural repertoires because of their histories of reinforcement and reprimand.
+      Behaviourism also clarifies the behaviours Sheldon avoids. When pedantic corrections irritate his siblings and earn disapproval, the social “punishment” suppresses those comments—at least temporarily. At school, losing a privilege (negative punishment) after breaking a rule teaches discrimination: he behaves one way in class, another way at home, because each context has a different history of reinforcement and reprimand. Over time, environmental cues gain control. A physics lab signals curiosity and risk-taking; church signals restraint. The same child shows different behaviours because the consequences differ.
     </p>
     <p>
-      Classical conditioning appears in his strong preferences and aversions. 
-      Predictable routines paired with calm evenings make order itself feel comforting, whereas unexpected noise or messy environments are associated with stress, eliciting anxiety even before anything objectively “bad” happens. 
-      Token-like systems—stickers, praise points, or simply nods from trusted adults—act as conditioned reinforcers that maintain his meticulous study habits.
+      Classical conditioning helps explain his strong preferences. Predictable routines paired with calm evenings make order itself feel soothing. Sudden noise paired with stressful moments creates conditioned anxiety, so he flinches before there is any new threat. Token-like systems—stickers, teacher nods, or a simple “Good job, Sheldon”—become conditioned reinforcers that keep meticulous study habits running with minimal effort. Shaping is visible when adults reward successive approximations: first sitting quietly, then raising his hand, then giving concise answers.
     </p>
     <p>
-      A behaviourist analysis neither denies genetics nor inner thoughts; it simply shows how consequences in Sheldon’s world shape what he actually does. 
-      It explains why his intellectual behaviours are so persistent: they have been richly and consistently rewarded across settings for years. 
-      Limitations remain—behaviourism struggles to account for his private thoughts or sudden insights—but as a lens on day-to-day actions, it reveals how environments train even a prodigy.
+      A behaviourist account does not deny genes or thoughts; it simply shows how consequences focus what Sheldon actually does. It explains why his intellectual behaviours are so persistent: they have been richly reinforced across many settings for years. The approach’s limitation is that it says little about the private experiences behind those behaviours. Still, as a lens on day-to-day actions, behaviourism reveals how environments train even a prodigy—and why changing the contingencies can gently change the child.
     </p>
   </section>
 
@@ -146,32 +86,22 @@
     <p class="lead">Learning by watching models and the power of vicarious reinforcement.</p>
 
     <div class="gallery">
-      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Young Sheldon studio portrait" loading="lazy">
       <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Sheldon with family" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon reading" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon speaking in class" loading="lazy">
     </div>
 
     <p>
-      Bandura’s social learning theory proposes that people acquire new behaviours by observing others, forming mental representations, and later reproducing the behaviour when motivated. 
-      Sheldon constantly watches powerful models: parents who value honesty and hard work, teachers who celebrate curiosity, and older peers who navigate the social jungle of school. 
-      When he sees someone praised for kindness or for explaining an idea clearly, he is more likely to attempt those behaviours himself—this is <em>vicarious reinforcement</em>. 
-      Likewise, he notices when sarcasm or rudeness draws negative reactions, and he sometimes modifies his delivery to avoid those consequences.
+      Bandura’s social learning theory argues that we acquire behaviour by observing others, storing what we see, and reproducing it when motivated. Sheldon constantly watches models. His mother models moral clarity and persistence; his father models straight-talk and practical problem-solving; teachers model curiosity and care for evidence. When he sees kindness or clear explanations rewarded, he is more likely to attempt those behaviours later—an example of vicarious reinforcement. He also notices when sarcasm or bragging earns negative reactions and, with practice, adjusts his delivery to avoid social costs.
     </p>
     <p>
-      The classic four processes—attention, retention, reproduction, and motivation—are easy to spot. 
-      Sheldon pays intense attention to how experts speak, remembers phrases and procedures with precision, and practices until he can reproduce them fluently. 
-      Motivation comes from both external approval and an internal self-image: he wants to be the kind of person his intellectual heroes would respect. 
-      Over time this builds <em>self-efficacy</em>—belief that he can master difficult tasks—which further increases his willingness to try challenging problems or public speaking.
+      The four key processes—attention, retention, reproduction, and motivation—are visible. Sheldon pays laser-like attention to how experts speak, remembers phrases and procedures with precision, and rehearses them until fluent. Motivation flows from both external approval and an internal identity: he wants to be a person his scientific heroes would respect. This growing sense of self-efficacy (belief that he can succeed) makes him volunteer for challenges, deliver presentations, and tackle advanced material far earlier than most children.
     </p>
     <p>
-      Role models are not limited to adults. 
-      Siblings and friends provide scripts for humour, negotiation, and teamwork that Sheldon experiments with (sometimes awkwardly) and refines through feedback. 
-      Media models also matter: biographies and documentaries supply behavioural templates—persistence after failure, meticulous note-keeping, ethical responsibility—that he imitates in school projects.
+      Peers and siblings matter too. From Missy and Georgie he collects scripts for humour, bargaining, and teamwork—even if he initially misfires when using them. Media also provide models: biographies of scientists supply behavioural templates—persistence, careful note-keeping, ethical responsibility—that he imitates in experiments and school projects. When models are similar, warm, and clearly rewarded, their influence is strongest; when their outcomes are ambiguous or conflict with his values, he ignores them.
     </p>
     <p>
-      Social learning clarifies why Sheldon can improve at social behaviour without explicit instruction: he internalises what he sees working for others. 
-      The approach also highlights limits: if a model’s behaviour clashes with his values or yields unclear outcomes, Sheldon is unlikely to adopt it. 
-      Still, as a bridge between behaviour and cognition, social learning explains how observation becomes practice—and practice becomes habit.
+      Social learning explains how Sheldon can improve at social behaviour without step-by-step instruction: observation becomes practice, practice becomes habit. It also shows limits. If feedback is inconsistent or models are confusing, learning stalls. And because he prefers precise rules, he sometimes copies form without grasping intention. Even so, as a bridge between behaviour and cognition, social learning reveals how a brilliant child builds new skills simply by watching the world work—and choosing which examples to keep.
     </p>
   </section>
 
@@ -181,32 +111,22 @@
     <p class="lead">Genes, brain systems, and physiology that support Sheldon’s abilities and sensitivities.</p>
 
     <div class="gallery">
-      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon in class" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon studying" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon concentrating" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon with books" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Smiling Young Sheldon" loading="lazy">
     </div>
 
     <p>
-      A biological lens explains Sheldon’s behaviour using genetics, brain development, and neurochemistry. 
-      His exceptional memory, abstract reasoning, and rapid learning suggest a highly efficient neural architecture—particularly in networks supporting working memory and executive function. 
-      Research on intelligence indicates substantial heritability; in fictional terms, Sheldon likely inherited alleles that bias development toward strong analytical skills and curiosity.
+      The biological approach explains behaviour using genetics, brain structure, and neurochemistry. Sheldon’s extraordinary memory, pattern recognition, and abstract reasoning suggest highly efficient neural networks—especially within systems supporting working memory and executive control. Research on intelligence shows notable heritability; within the show’s fiction, Sheldon plausibly inherits alleles that bias development toward analytical thinking and curiosity. These predispositions do not guarantee genius, but they raise the ceiling for what practice can achieve.
     </p>
     <p>
-      Sensory processing also stands out. 
-      He is unusually sensitive to sound, texture, and unpredictability, which may reflect heightened reactivity in sensory cortices and stress-response systems. 
-      Routine, therefore, functions not only as preference but as physiological regulation: predictable environments minimise arousal, allowing cognitive resources to stay focused on complex tasks. 
-      Sleep, nutrition, and arousal level further modulate his performance; when these are optimal, his problem-solving speed and accuracy soar.
+      Sensory processing stands out. Sheldon’s discomfort with loud noises, itchy fabrics, or unexpected change points to heightened reactivity in sensory cortices and stress-response circuits. Routine thus acts as physiological regulation: predictable environments lower arousal, freeing cognitive resources for difficult tasks. Sleep quality, nutrition, and overall arousal modulate his performance; when these are optimal, his speed and accuracy soar.
     </p>
     <p>
-      Neurotransmitter systems play a role in reward and learning. 
-      Scientific discovery and correct solutions likely trigger robust dopaminergic signals, making intellectual exploration intrinsically rewarding. 
-      The prefrontal cortex supports planning and rule-based reasoning—strengths that characterise Sheldon’s approach to life—while connectivity with limbic areas influences his emotional tone and occasional rigidity when plans change suddenly.
+      Motivation links to neurochemistry. Solving a tough problem likely produces robust dopaminergic reward signals, making intellectual exploration intrinsically reinforcing. The prefrontal cortex supports planning and rule-based reasoning—clear strengths—while connectivity with limbic structures shapes emotional tone. Under stress, strong top-down control can flip into rigidity: when plans change abruptly, he struggles to shift set because prediction errors feel threatening to the system.
     </p>
     <p>
-      Importantly, biology is not destiny. 
-      Gene–environment interaction is clear in Sheldon’s story: a supportive family, access to mentors, and rich educational materials amplify his biological potential. 
-      The biological approach explains the <em>capacity</em>—why high performance is possible—and why certain environments feel overwhelming. 
-      It does not, by itself, explain everything he chooses to do; for that, we combine it with learning and cognitive perspectives.
+      Importantly, biology is not destiny. Gene–environment interaction is central to Sheldon’s story. A supportive family, inspiring teachers, and access to books and labs amplify his biological potential. Conversely, noisy and chaotic settings tax his system and reveal limits. The biological lens explains capacity—why high performance is possible—and vulnerability—why certain contexts overwhelm. On its own it cannot explain specific habits or moral choices, but combined with learning and cognitive perspectives it offers a grounded picture of how a prodigy’s brain powers a very particular child.
     </p>
   </section>
 
@@ -216,32 +136,19 @@
     <p class="lead">Unconscious motives, early relationships, and defence mechanisms beneath the surface.</p>
 
     <div class="gallery">
-      <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Sheldon with family" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
-      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon at school" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Sheldon and family dynamic" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Young Sheldon portrait" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon at school desk" loading="lazy">
     </div>
 
     <p>
-      Psychodynamic theory explores how early experiences and unconscious conflicts shape present behaviour. 
-      Sheldon’s intense need for order and predictability can be viewed as a way of managing underlying anxiety—an ego strategy that keeps emotions contained so that intellect can dominate. 
-      His strong bond with his mother provides security and a clear moral framework (a firm superego), while his wish for independence and recognition creates tension with authority figures, negotiated by the ego.
+      Psychodynamic theory explores how early experiences and unconscious conflicts shape present behaviour. Sheldon’s intense need for order and predictability can be read as an ego strategy to manage anxiety: when rules are clear, emotions feel containable. His strong bond with his mother offers security and a firm moral compass (a robust superego), while a wish for independence and recognition creates tension with authority, negotiated by the ego’s reality testing. When stress rises, defence mechanisms appear. Intellectualisation is his favourite: he converts raw feelings into analyzable problems, protecting himself from vulnerability. Rationalisation (inventing tidy reasons for uncomfortable choices) and displacement (redirecting frustration into safe topics) sometimes surface in awkward social scenes.
     </p>
     <p>
-      Defence mechanisms are visible in everyday moments. 
-      <em>Intellectualisation</em> is his favourite: when stressed, he turns feelings into problems to analyse, stripping away emotion and replacing it with logic. 
-      <em>Rationalisation</em> (inventing logical reasons for choices already made) and <em>projection</em> (ascribing motives to others) occasionally appear when social situations confuse him. 
-      These mechanisms reduce discomfort but can distance him from empathy and spontaneity.
+      Early praise for correctness may have built an unconscious belief that love is conditional on achievement. That narrative fuels perfectionism and fear of humiliation, explaining the clinging to rituals and the dread of public mistakes. Mentors at school can operate as symbolic father figures: success with them gratifies deep wishes for approval; conflict can feel like personal rejection, eliciting outsized reactions. Transference—the tendency to replay old relational patterns in new relationships—helps explain why a teacher’s small critique can sting far more than intended.
     </p>
     <p>
-      Early experiences with praise for correctness may have created unconscious expectations that love is conditional on achievement. 
-      This can produce perfectionism and fear of humiliation, explaining why surprises feel threatening and why he clings to rituals. 
-      Mentors serve as symbolic father-figures; success with them satisfies deep wishes for approval, while disagreements can feel like personal rejection, eliciting disproportionate reactions.
-    </p>
-    <p>
-      The psychodynamic lens doesn’t claim that Sheldon consciously chooses rigidity; rather, it suggests that hidden motives and childhood patterns quietly guide him. 
-      Its value lies in revealing meaning behind habits—why order soothes him, why intellect becomes armour, and why relationships can be both cherished and puzzling. 
-      The limitation is testability: unconscious processes are hard to measure. 
-      Still, as a narrative of inner life, the approach explains Sheldon’s blend of brilliance, anxiety, and heartfelt loyalty.
+      The psychodynamic lens does not reduce Sheldon to pathology; it offers meaning. It explains why intellect becomes armour, why order soothes, and why connection matters even when it is puzzling. Its limitation is testability: unconscious processes are hard to measure directly. Yet as a narrative about motives, it reveals a heart beneath the equations—a boy negotiating desire, duty, and safety while growing up in a noisy world.
     </p>
   </section>
 
@@ -257,27 +164,16 @@
     </div>
 
     <p>
-      The cognitive approach explains behaviour by examining internal mental processes—attention, memory, language, and reasoning. 
-      Sheldon’s mind excels at building precise <em>schemas</em> (mental frameworks) for mathematics, physics, and daily routines. 
-      These schemas organise new information quickly, allowing him to recognise patterns and retrieve rules at remarkable speed. 
-      Powerful working memory lets him juggle steps in complex problems, while long-term memory stores formulas, facts, and examples in well-indexed “maps.”
+      The cognitive approach explains behaviour by examining internal mental processes—attention, memory, language, and reasoning. Sheldon’s mind excels at building precise schemas (mental frameworks) for mathematics, physics, and daily routines. These schemas organise new information quickly, letting him recognise patterns and retrieve rules at speed. Powerful working memory allows him to juggle steps in complex problems, while long-term memory stores formulas and facts in well-indexed networks. Using the information-processing model, we can say his encoding is deep (he links new ideas to prior knowledge), rehearsal is deliberate (teaching others, self-testing), and retrieval is exceptionally fast.
     </p>
     <p>
-      He also demonstrates sophisticated metacognition: he thinks about how he thinks. 
-      He plans study schedules, tests himself, and monitors errors, choosing strategies—like chunking, visualising, or rehearsal—that boost accuracy. 
-      Algorithms appeal to him because they minimise ambiguity; given clear inputs, he can produce reliable outputs. 
-      When tasks lack rules, however, his rigid schemas can slow adaptation. 
-      Figurative language or shifting social norms violate expectations, so he searches for explicit rules and sometimes misreads intentions.
+      Metacognition—thinking about thinking—is another hallmark. Sheldon plans study schedules, monitors errors, and chooses efficient strategies like chunking, visualising, and spaced practice. Algorithms appeal because they minimise ambiguity; with clear inputs he can produce reliable outputs. When tasks lack rules, however, rigid schemas slow adaptation. Figurative language or shifting social norms violate expectations, so he searches for explicit rules and sometimes misreads intentions.
     </p>
     <p>
-      Attention is another strength and constraint. 
-      He can hyper-focus on problems, filtering distractions, which accelerates expertise. 
-      Yet rapid switching or noisy settings overload his system, reducing flexibility. 
-      Cognitive biases also appear: confirmation bias (preferring evidence that fits existing theories) and anchoring (clinging to first impressions) occasionally colour judgments, especially in social contexts where data feel “messy.”
+      Attention is both strength and constraint. He can hyper-focus on problems, filtering distractions and accelerating expertise. Yet rapid task-switching or noisy environments overload his system, reducing flexibility. Cognitive biases appear too: confirmation bias makes him favour evidence that fits existing theories; anchoring makes first impressions sticky; the planning fallacy tempts him to underestimate how long others need to learn what came easily to him.
     </p>
     <p>
-      Overall, the cognitive lens highlights a mind optimised for structure: brilliant at rule-governed reasoning, memory organisation, and deliberate practice; less comfortable with ambiguity and implicit cues. 
-      Understanding these strengths and limits explains both Sheldon’s academic superpowers and his social misunderstandings—and suggests why gentle scaffolding and clear expectations help him thrive.
+      Overall, the cognitive lens highlights a mind optimised for structure: brilliant at rule-governed reasoning, memory organisation, and deliberate practice; less comfortable with ambiguity and implicit cues. Understanding these strengths and limits explains both Sheldon’s academic superpowers and his social misunderstandings—and suggests why clear expectations, visual supports, and gentle flexibility training help him thrive.
     </p>
   </section>
 </main>
@@ -285,43 +181,26 @@
 <footer>© 2025 Juno — Psychology Project: Understanding Young Sheldon</footer>
 
 <script>
-  // Show a panel when its tab is clicked
+  // Show the requested panel and mark its tab active
   function showPanel(id){
-    // Hide all panels
-    document.querySelectorAll('.approach').forEach(p=>{
-      p.style.display='none';
-    });
-    // Reset tab selection
-    document.querySelectorAll('nav [role="tab"]').forEach(b=>{
-      b.setAttribute('aria-selected','false');
-    });
-    // Show target
+    document.querySelectorAll('.approach').forEach(p=>p.style.display='none');
+    document.querySelectorAll('nav [role="tab"]').forEach(t=>t.setAttribute('aria-selected','false'));
     const panel=document.getElementById(id);
-    if(panel){
-      panel.style.display='block';
-      panel.focus({preventScroll:true});
-      panel.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-    // Mark active tab
     const tab=document.getElementById(id+'-link');
+    if(panel){ panel.style.display='block'; panel.scrollIntoView({behavior:'smooth', block:'start'}); }
     if(tab){ tab.setAttribute('aria-selected','true'); }
   }
-
-  // Attach listeners after DOM is ready
+  // Wire up clicks after DOM is ready
   document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('nav [role="tab"]').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const id = btn.id.replace('-link','');
-        showPanel(id);
-      });
+      btn.addEventListener('click',()=>showPanel(btn.id.replace('-link','')));
     });
-    // Optional: open the first tab on load
-    // showPanel('behaviourist');
+    // Open the first tab on load
+    showPanel('behaviourist');
   });
 </script>
 </body>
 </html>
-
 
 
 
