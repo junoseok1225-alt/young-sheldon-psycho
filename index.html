@@ -74,10 +74,10 @@
 
 <body>
   <nav>
-    <a href="#">Behaviourist</a>
-    <a href="#">Social Learning</a>
-    <a href="#">Biological</a>
-    <a href="#">Psychodynamic</a>
+    <a id="behaviourist-link">Behaviourist</a>
+    <a id="social-link">Social Learning</a>
+    <a id="biological-link">Biological</a>
+    <a id="psychodynamic-link">Psychodynamic</a>
     <a id="cognitive-link">Cognitive</a>
   </nav>
 
@@ -93,11 +93,39 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Young_Sheldon_title_card.jpg" alt="Young Sheldon">
     <img src="https://static.wikia.nocookie.net/youngsheldon/images/1/1a/Cooper_Family.jpg" alt="Sheldon with family">
 
-    <!-- Cognitive Approach Section -->
-    <div id="cognitive-approach" class="approach">
+    <!-- Approach Sections -->
+    <div id="behaviourist" class="approach">
+      <h3>Behaviourist Approach</h3>
+      <p>
+        The behaviourist approach focuses on observable behaviour and learning through rewards and punishments. In <em>Young Sheldon</em>, Sheldon's reactions to praise or correction at school and home demonstrate this approach in action.
+      </p>
+    </div>
+
+    <div id="social" class="approach">
+      <h3>Social Learning Approach</h3>
+      <p>
+        This approach emphasises learning through observation and imitation. Sheldon often models behaviour from his family and teachers, showing how social learning influences his development.
+      </p>
+    </div>
+
+    <div id="biological" class="approach">
+      <h3>Biological Approach</h3>
+      <p>
+        The biological approach looks at genetics, brain structures, and neurochemistry. Sheldon's high intelligence and memory can partly be explained by innate biological factors.
+      </p>
+    </div>
+
+    <div id="psychodynamic" class="approach">
+      <h3>Psychodynamic Approach</h3>
+      <p>
+        This approach examines unconscious drives and early experiences. Sheldon's interactions with his family and his need for routines reveal underlying unconscious motivations and conflicts.
+      </p>
+    </div>
+
+    <div id="cognitive" class="approach">
       <h3>Cognitive Approach</h3>
       <p>
-        The cognitive approach focuses on mental processes such as thinking, memory, and problem-solving. In <em>Young Sheldon</em>, we can see how Sheldon's incredible memory, logical thinking, and attention to detail influence his behaviour and interactions. This approach helps explain why Sheldon often relies on reasoning rather than emotions to navigate social situations.
+        The cognitive approach focuses on mental processes such as thinking, memory, and problem-solving. In <em>Young Sheldon</em>, we can see how Sheldon's incredible memory, logical thinking, and attention to detail influence his behaviour and interactions.
       </p>
     </div>
   </main>
@@ -107,20 +135,29 @@
   </footer>
 
   <script>
-    const cognitiveLink = document.getElementById('cognitive-link');
-    const cognitiveSection = document.getElementById('cognitive-approach');
+    const links = [
+      { linkId: 'behaviourist-link', sectionId: 'behaviourist' },
+      { linkId: 'social-link', sectionId: 'social' },
+      { linkId: 'biological-link', sectionId: 'biological' },
+      { linkId: 'psychodynamic-link', sectionId: 'psychodynamic' },
+      { linkId: 'cognitive-link', sectionId: 'cognitive' }
+    ];
 
-    cognitiveLink.addEventListener('click', () => {
-      // toggle visibility
-      if (cognitiveSection.style.display === 'block') {
-        cognitiveSection.style.display = 'none';
-      } else {
-        cognitiveSection.style.display = 'block';
-        cognitiveSection.scrollIntoView({ behavior: 'smooth' });
-      }
+    links.forEach(item => {
+      const link = document.getElementById(item.linkId);
+      const section = document.getElementById(item.sectionId);
+
+      link.addEventListener('click', () => {
+        // Hide all sections first
+        document.querySelectorAll('.approach').forEach(sec => sec.style.display = 'none');
+        // Show the clicked section
+        section.style.display = 'block';
+        section.scrollIntoView({ behavior: 'smooth' });
+      });
     });
   </script>
 </body>
 </html>
+
 
 
