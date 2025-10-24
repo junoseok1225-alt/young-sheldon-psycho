@@ -1,163 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Understanding Young Sheldon</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
+      font-family: 'Arial', sans-serif;
       margin: 0;
-      background-color: #f9f9f9;
+      background: linear-gradient(to bottom right, #fefefe, #e6f0ff);
       color: #333;
     }
 
+    header {
+      background-color: #6a5acd;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 5px solid #483d8b;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
     nav {
-      background: #fff;
       display: flex;
       justify-content: center;
       gap: 1rem;
       padding: 1rem;
+      background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav a {
       text-decoration: none;
-      color: #555;
-      font-weight: 600;
-      transition: color 0.3s;
+      color: #6a5acd;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
       cursor: pointer;
     }
 
     nav a:hover {
-      color: #6a5acd;
+      background-color: #6a5acd;
+      color: white;
     }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
-      text-align: center;
-      background: white;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     main img {
-      width: 200px;
-      border-radius: 12px;
-      margin: 1rem;
+      width: 250px;
+      border-radius: 15px;
+      margin: 1rem 0;
+      transition: transform 0.3s;
+    }
+
+    main img:hover {
+      transform: scale(1.05);
     }
 
     .approach {
       display: none;
-      margin-top: 1rem;
-      text-align: left;
+      margin-top: 2rem;
       padding: 1rem;
+      text-align: left;
       background-color: #f0f0ff;
-      border-left: 4px solid #6a5acd;
-      border-radius: 6px;
+      border-left: 5px solid #6a5acd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .approach h3 {
+      margin-top: 0;
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background: #f0f0f0;
+      background-color: #f0f0f0;
       margin-top: 3rem;
       font-size: 0.9rem;
     }
   </style>
 </head>
-
 <body>
-  <nav>
-    <a id="behaviourist-link">Behaviourist</a>
-    <a id="social-link">Social Learning</a>
-    <a id="biological-link">Biological</a>
-    <a id="psychodynamic-link">Psychodynamic</a>
-    <a id="cognitive-link">Cognitive</a>
-  </nav>
 
-  <main>
-    <h1>Understanding Young Sheldon</h1>
-    <p><em>A Psychology Project by Juno</em></p>
+<header>
+  <h1>Understanding Young Sheldon</h1>
+  <p>A Psychology Project by Juno</p>
+</header>
 
-    <h2>Who is Young Sheldon?</h2>
-    <p>
-      Young Sheldon Cooper, a child prodigy from the show <em>Young Sheldon</em>, displays fascinating behaviour shaped by his environment, upbringing, and personality. This project analyses his behaviour using five key psychological approaches.
-    </p>
+<nav>
+  <a id="behaviourist-link">Behaviourist</a>
+  <a id="social-link">Social Learning</a>
+  <a id="biological-link">Biological</a>
+  <a id="psychodynamic-link">Psychodynamic</a>
+  <a id="cognitive-link">Cognitive</a>
+</nav>
 
-    <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Young_Sheldon_title_card.jpg" alt="Young Sheldon">
-    <img src="https://static.wikia.nocookie.net/youngsheldon/images/1/1a/Cooper_Family.jpg" alt="Sheldon with family">
+<main>
+  <p>
+    Young Sheldon Cooper is a child prodigy whose behaviour can be analysed using different psychological approaches. Click on an approach above to see examples and learn more!
+  </p>
 
-    <!-- Approach Sections -->
-    <div id="behaviourist" class="approach">
-      <h3>Behaviourist Approach</h3>
-      <p>
-        The behaviourist approach focuses on observable behaviour and learning through rewards and punishments. In <em>Young Sheldon</em>, Sheldon's reactions to praise or correction at school and home demonstrate this approach in action.
-      </p>
-    </div>
+  <img id="main-image" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Young_Sheldon_title_card.jpg" alt="Young Sheldon">
 
-    <div id="social" class="approach">
-      <h3>Social Learning Approach</h3>
-      <p>
-        This approach emphasises learning through observation and imitation. Sheldon often models behaviour from his family and teachers, showing how social learning influences his development.
-      </p>
-    </div>
+  <!-- Approaches -->
+  <div id="behaviourist" class="approach">
+    <h3>Behaviourist Approach</h3>
+    <p>Sheldon learns through rewards and punishments. For example, when his teacher praises him for correctly solving a math problem, he repeats the behaviour to gain approval.</p>
+  </div>
 
-    <div id="biological" class="approach">
-      <h3>Biological Approach</h3>
-      <p>
-        The biological approach looks at genetics, brain structures, and neurochemistry. Sheldon's high intelligence and memory can partly be explained by innate biological factors.
-      </p>
-    </div>
+  <div id="social" class="approach">
+    <h3>Social Learning Approach</h3>
+    <p>Sheldon often imitates his older brother or observes his parents’ behaviour. For example, he copies George Sr.’s way of explaining things logically to impress others.</p>
+  </div>
 
-    <div id="psychodynamic" class="approach">
-      <h3>Psychodynamic Approach</h3>
-      <p>
-        This approach examines unconscious drives and early experiences. Sheldon's interactions with his family and his need for routines reveal underlying unconscious motivations and conflicts.
-      </p>
-    </div>
+  <div id="biological" class="approach">
+    <h3>Biological Approach</h3>
+    <p>Sheldon’s high intelligence and memory are partly genetic. His ability to remember long sequences or formulas shows innate biological factors at work.</p>
+  </div>
 
-    <div id="cognitive" class="approach">
-      <h3>Cognitive Approach</h3>
-      <p>
-        The cognitive approach focuses on mental processes such as thinking, memory, and problem-solving. In <em>Young Sheldon</em>, we can see how Sheldon's incredible memory, logical thinking, and attention to detail influence his behaviour and interactions.
-      </p>
-    </div>
-  </main>
+  <div id="psychodynamic" class="approach">
+    <h3>Psychodynamic Approach</h3>
+    <p>Sheldon’s strict routines and need for order reflect unconscious motivations shaped by childhood experiences and family dynamics.</p>
+  </div>
 
-  <footer>
-    © 2025 Juno Seok | Psychology Project
-  </footer>
+  <div id="cognitive" class="approach">
+    <h3>Cognitive Approach</h3>
+    <p>Sheldon uses logic and reasoning to solve problems. His ability to plan experiments and understand complex theories demonstrates cognitive processing in action.</p>
+  </div>
+</main>
 
-  <script>
-    const links = [
-      { linkId: 'behaviourist-link', sectionId: 'behaviourist' },
-      { linkId: 'social-link', sectionId: 'social' },
-      { linkId: 'biological-link', sectionId: 'biological' },
-      { linkId: 'psychodynamic-link', sectionId: 'psychodynamic' },
-      { linkId: 'cognitive-link', sectionId: 'cognitive' }
-    ];
+<footer>
+  © 2025 Juno Seok | Psychology Project
+</footer>
 
-    links.forEach(item => {
-      const link = document.getElementById(item.linkId);
-      const section = document.getElementById(item.sectionId);
+<script>
+  const approaches = [
+    {
+      linkId: 'behaviourist-link',
+      sectionId: 'behaviourist',
+      img: 'https://static.wikia.nocookie.net/youngsheldon/images/0/0a/Young_Sheldon_1.jpg'
+    },
+    {
+      linkId: 'social-link',
+      sectionId: 'social',
+      img: 'https://static.wikia.nocookie.net/youngsheldon/images/7/7a/Young_Sheldon_2.jpg'
+    },
+    {
+      linkId: 'biological-link',
+      sectionId: 'biological',
+      img: 'https://static.wikia.nocookie.net/youngsheldon/images/a/a5/Young_Sheldon_3.jpg'
+    },
+    {
+      linkId: 'psychodynamic-link',
+      sectionId: 'psychodynamic',
+      img: 'https://static.wikia.nocookie.net/youngsheldon/images/f/f0/Young_Sheldon_4.jpg'
+    },
+    {
+      linkId: 'cognitive-link',
+      sectionId: 'cognitive',
+      img: 'https://static.wikia.nocookie.net/youngsheldon/images/1/13/Young_Sheldon_5.jpg'
+    }
+  ];
 
-      link.addEventListener('click', () => {
-        // Hide all sections first
-        document.querySelectorAll('.approach').forEach(sec => sec.style.display = 'none');
-        // Show the clicked section
-        section.style.display = 'block';
-        section.scrollIntoView({ behavior: 'smooth' });
-      });
+  const mainImage = document.getElementById('main-image');
+
+  approaches.forEach(item => {
+    const link = document.getElementById(item.linkId);
+    const section = document.getElementById(item.sectionId);
+
+    link.addEventListener('click', () => {
+      // Hide all sections
+      document.querySelectorAll('.approach').forEach(sec => sec.style.display = 'none');
+      // Show selected section
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+      // Change image
+      mainImage.src = item.img;
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
