@@ -1,130 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Understanding Young Sheldon</title>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(to bottom right, #fefefe, #e6f0ff);
-      color: #333;
-      line-height: 1.6;
+    :root{
+      --purple:#6a5acd;
+      --deep:#483d8b;
+      --paper:#ffffff;
+      --ink:#333;
+      --panel:#f4f3ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.6;
+      background:linear-gradient(135deg,#fefefe,#e6f0ff);
+    }
+    header{
+      background:linear-gradient(90deg,var(--purple),#7b68ee);
+      color:#fff;
+      text-align:center;
+      padding:2.4rem 1rem;
+      border-bottom:5px solid var(--deep);
+      box-shadow:0 4px 14px rgba(0,0,0,.25);
+    }
+    header h1{margin:0 0 .4rem;font-size:2.4rem}
+    header p{margin:0;opacity:.9;font-style:italic}
+
+    nav{
+      position:sticky;top:0;z-index:10;
+      background:#fff;
+      display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;
+      padding:1rem;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+    nav button{
+      border:0;outline:0;cursor:pointer;
+      padding:.6rem 1rem;border-radius:10px;
+      color:var(--purple);background:#f2f0ff;font-weight:700;
+      transition:.25s;
+    }
+    nav button:hover,nav button[aria-selected="true"]{
+      background:var(--purple);color:#fff;transform:translateY(-1px);
     }
 
-    header {
-      background: linear-gradient(to right, #6a5acd, #7b68ee);
-      color: white;
-      padding: 2.5rem;
-      text-align: center;
-      border-bottom: 5px solid #483d8b;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    main{
+      max-width:1000px;margin:2rem auto;background:var(--paper);
+      border-radius:16px;padding:2rem;
+      box-shadow:0 6px 22px rgba(0,0,0,.10);
+    }
+    .intro{font-size:1.05rem;margin:0 0 1.25rem}
+    #hero{
+      width:260px;border-radius:12px;margin:1rem auto 0;display:block;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);transition:transform .25s;
+    }
+    #hero:hover{transform:scale(1.03)}
+
+    /* Panels */
+    .approach{
+      display:none; /* hidden by default */
+      margin-top:1.75rem;padding:1.25rem 1.25rem 1rem;
+      background:var(--panel);border-left:6px solid var(--purple);
+      border-radius:12px;animation:fade .35s ease;
+    }
+    .approach h3{margin:.2rem 0 0;color:var(--deep)}
+    .lead{margin:.25rem 0 1rem;color:#555}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin:1rem 0 1rem}
+    .gallery img{
+      width:100%;display:block;border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.14);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    footer{
+      text-align:center;margin:2rem 0 1.5rem;color:#666;font-size:.9rem;
     }
-
-    header p {
-      font-size: 1.1rem;
-      font-style: italic;
-      opacity: 0.9;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1rem;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #6a5acd;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    nav a:hover, nav a.active {
-      background-color: #6a5acd;
-      color: white;
-    }
-
-    main {
-      max-width: 950px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    main p.intro {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    main img#main-image {
-      width: 260px;
-      border-radius: 12px;
-      margin: 1rem 0;
-      transition: transform 0.3s;
-    }
-
-    main img#main-image:hover {
-      transform: scale(1.05);
-    }
-
-    .approach {
-      display: none;
-      margin-top: 2rem;
-      padding: 1.5rem;
-      text-align: left;
-      background-color: #f4f3ff;
-      border-left: 6px solid #6a5acd;
-      border-radius: 10px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    .approach h3 {
-      color: #483d8b;
-      margin-top: 0;
-    }
-
-    .approach img {
-      width: 200px;
-      border-radius: 10px;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      float: right;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #f0f0f0;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
+    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 <body>
@@ -134,85 +90,235 @@
   <p>A Psychology Project by Juno</p>
 </header>
 
-<nav>
-  <a id="behaviourist-link">Behaviourist</a>
-  <a id="social-link">Social Learning</a>
-  <a id="biological-link">Biological</a>
-  <a id="psychodynamic-link">Psychodynamic</a>
-  <a id="cognitive-link">Cognitive</a>
+<nav role="tablist" aria-label="Psychology approaches">
+  <button id="behaviourist-link" role="tab" aria-controls="behaviourist" aria-selected="false">Behaviourist</button>
+  <button id="social-link" role="tab" aria-controls="social" aria-selected="false">Social Learning</button>
+  <button id="biological-link" role="tab" aria-controls="biological" aria-selected="false">Biological</button>
+  <button id="psychodynamic-link" role="tab" aria-controls="psychodynamic" aria-selected="false">Psychodynamic</button>
+  <button id="cognitive-link" role="tab" aria-controls="cognitive" aria-selected="false">Cognitive</button>
 </nav>
 
 <main>
   <p class="intro">
     Young Sheldon Cooper is a child prodigy whose behaviour can be analysed using different psychological approaches. 
-    Click on an approach above to explore how psychology helps explain his unique personality and development.
+    Click an approach above and a detailed explanation will appear here for readers.
   </p>
+  <img id="hero" src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Young Sheldon smiling in a bow tie" loading="lazy" />
 
-  <img id="main-image" src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Young Sheldon">
-
-  <!-- Behaviourist -->
-  <div id="behaviourist" class="approach">
+  <!-- ================= Behaviourist ================= -->
+  <section id="behaviourist" class="approach" role="tabpanel" tabindex="-1" aria-labelledby="behaviourist-link">
     <h3>Behaviourist Approach</h3>
-    <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Behaviourist Sheldon">
-    <p>The behaviourist approach focuses on observable behaviour...</p>
-  </div>
+    <p class="lead">How rewards, punishments, and conditioning shape Sheldon’s actions.</p>
 
-  <!-- Social Learning -->
-  <div id="social" class="approach">
+    <div class="gallery">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon at school" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking" loading="lazy">
+    </div>
+
+    <p>
+      The behaviourist approach explains behaviour in terms of what is observable and measurable: actions that increase or decrease in frequency because of their consequences. 
+      In <em>Young Sheldon</em>, praise from teachers after a correct answer functions as positive reinforcement, making it more likely he will volunteer in future lessons and persist with difficult problems. 
+      At home, access to favoured activities—extra time with science books, permission to run an experiment, choosing dinner—often follows cooperation with chores or family rules. 
+      These contingent rewards strengthen compliance without needing to appeal to emotions or abstract reasoning.
+    </p>
+    <p>
+      Operant conditioning also helps us understand what Sheldon avoids.  
+      When sarcasm earns disapproval or when pedantic corrections upset his siblings, the social “punishment” temporarily suppresses those responses. 
+      Teachers sometimes remove privileges (negative punishment), and Sheldon learns to moderate behaviours that cause conflict. 
+      Over time, stimulus control emerges: certain contexts (a physics lab, the dinner table, church) cue different behavioural repertoires because of their histories of reinforcement and reprimand.
+    </p>
+    <p>
+      Classical conditioning appears in his strong preferences and aversions. 
+      Predictable routines paired with calm evenings make order itself feel comforting, whereas unexpected noise or messy environments are associated with stress, eliciting anxiety even before anything objectively “bad” happens. 
+      Token-like systems—stickers, praise points, or simply nods from trusted adults—act as conditioned reinforcers that maintain his meticulous study habits.
+    </p>
+    <p>
+      A behaviourist analysis neither denies genetics nor inner thoughts; it simply shows how consequences in Sheldon’s world shape what he actually does. 
+      It explains why his intellectual behaviours are so persistent: they have been richly and consistently rewarded across settings for years. 
+      Limitations remain—behaviourism struggles to account for his private thoughts or sudden insights—but as a lens on day-to-day actions, it reveals how environments train even a prodigy.
+    </p>
+  </section>
+
+  <!-- ================= Social Learning ================= -->
+  <section id="social" class="approach" role="tabpanel" tabindex="-1" aria-labelledby="social-link">
     <h3>Social Learning Approach</h3>
-    <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Social Sheldon">
-    <p>The social learning approach highlights learning by observation...</p>
-  </div>
+    <p class="lead">Learning by watching models and the power of vicarious reinforcement.</p>
 
-  <!-- Biological -->
-  <div id="biological" class="approach">
+    <div class="gallery">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Sheldon with family" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon reading" loading="lazy">
+    </div>
+
+    <p>
+      Bandura’s social learning theory proposes that people acquire new behaviours by observing others, forming mental representations, and later reproducing the behaviour when motivated. 
+      Sheldon constantly watches powerful models: parents who value honesty and hard work, teachers who celebrate curiosity, and older peers who navigate the social jungle of school. 
+      When he sees someone praised for kindness or for explaining an idea clearly, he is more likely to attempt those behaviours himself—this is <em>vicarious reinforcement</em>. 
+      Likewise, he notices when sarcasm or rudeness draws negative reactions, and he sometimes modifies his delivery to avoid those consequences.
+    </p>
+    <p>
+      The classic four processes—attention, retention, reproduction, and motivation—are easy to spot. 
+      Sheldon pays intense attention to how experts speak, remembers phrases and procedures with precision, and practices until he can reproduce them fluently. 
+      Motivation comes from both external approval and an internal self-image: he wants to be the kind of person his intellectual heroes would respect. 
+      Over time this builds <em>self-efficacy</em>—belief that he can master difficult tasks—which further increases his willingness to try challenging problems or public speaking.
+    </p>
+    <p>
+      Role models are not limited to adults. 
+      Siblings and friends provide scripts for humour, negotiation, and teamwork that Sheldon experiments with (sometimes awkwardly) and refines through feedback. 
+      Media models also matter: biographies and documentaries supply behavioural templates—persistence after failure, meticulous note-keeping, ethical responsibility—that he imitates in school projects.
+    </p>
+    <p>
+      Social learning clarifies why Sheldon can improve at social behaviour without explicit instruction: he internalises what he sees working for others. 
+      The approach also highlights limits: if a model’s behaviour clashes with his values or yields unclear outcomes, Sheldon is unlikely to adopt it. 
+      Still, as a bridge between behaviour and cognition, social learning explains how observation becomes practice—and practice becomes habit.
+    </p>
+  </section>
+
+  <!-- ================= Biological ================= -->
+  <section id="biological" class="approach" role="tabpanel" tabindex="-1" aria-labelledby="biological-link">
     <h3>Biological Approach</h3>
-    <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Biological Sheldon">
-    <p>The biological approach focuses on brain, genes, and neurochemistry...</p>
-  </div>
+    <p class="lead">Genes, brain systems, and physiology that support Sheldon’s abilities and sensitivities.</p>
 
-  <!-- Psychodynamic -->
-  <div id="psychodynamic" class="approach">
+    <div class="gallery">
+      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon in class" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon studying" loading="lazy">
+    </div>
+
+    <p>
+      A biological lens explains Sheldon’s behaviour using genetics, brain development, and neurochemistry. 
+      His exceptional memory, abstract reasoning, and rapid learning suggest a highly efficient neural architecture—particularly in networks supporting working memory and executive function. 
+      Research on intelligence indicates substantial heritability; in fictional terms, Sheldon likely inherited alleles that bias development toward strong analytical skills and curiosity.
+    </p>
+    <p>
+      Sensory processing also stands out. 
+      He is unusually sensitive to sound, texture, and unpredictability, which may reflect heightened reactivity in sensory cortices and stress-response systems. 
+      Routine, therefore, functions not only as preference but as physiological regulation: predictable environments minimise arousal, allowing cognitive resources to stay focused on complex tasks. 
+      Sleep, nutrition, and arousal level further modulate his performance; when these are optimal, his problem-solving speed and accuracy soar.
+    </p>
+    <p>
+      Neurotransmitter systems play a role in reward and learning. 
+      Scientific discovery and correct solutions likely trigger robust dopaminergic signals, making intellectual exploration intrinsically rewarding. 
+      The prefrontal cortex supports planning and rule-based reasoning—strengths that characterise Sheldon’s approach to life—while connectivity with limbic areas influences his emotional tone and occasional rigidity when plans change suddenly.
+    </p>
+    <p>
+      Importantly, biology is not destiny. 
+      Gene–environment interaction is clear in Sheldon’s story: a supportive family, access to mentors, and rich educational materials amplify his biological potential. 
+      The biological approach explains the <em>capacity</em>—why high performance is possible—and why certain environments feel overwhelming. 
+      It does not, by itself, explain everything he chooses to do; for that, we combine it with learning and cognitive perspectives.
+    </p>
+  </section>
+
+  <!-- ================= Psychodynamic ================= -->
+  <section id="psychodynamic" class="approach" role="tabpanel" tabindex="-1" aria-labelledby="psychodynamic-link">
     <h3>Psychodynamic Approach</h3>
-    <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Psychodynamic Sheldon">
-    <p>The psychodynamic approach focuses on unconscious drives...</p>
-  </div>
+    <p class="lead">Unconscious motives, early relationships, and defence mechanisms beneath the surface.</p>
 
-  <!-- Cognitive -->
-  <div id="cognitive" class="approach">
+    <div class="gallery">
+      <img src="https://m.media-amazon.com/images/I/81GqKKrM2nL._AC_SY679_.jpg" alt="Sheldon with family" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon portrait" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/91I6U+Xy+RL._AC_SY679_.jpg" alt="Sheldon at school" loading="lazy">
+    </div>
+
+    <p>
+      Psychodynamic theory explores how early experiences and unconscious conflicts shape present behaviour. 
+      Sheldon’s intense need for order and predictability can be viewed as a way of managing underlying anxiety—an ego strategy that keeps emotions contained so that intellect can dominate. 
+      His strong bond with his mother provides security and a clear moral framework (a firm superego), while his wish for independence and recognition creates tension with authority figures, negotiated by the ego.
+    </p>
+    <p>
+      Defence mechanisms are visible in everyday moments. 
+      <em>Intellectualisation</em> is his favourite: when stressed, he turns feelings into problems to analyse, stripping away emotion and replacing it with logic. 
+      <em>Rationalisation</em> (inventing logical reasons for choices already made) and <em>projection</em> (ascribing motives to others) occasionally appear when social situations confuse him. 
+      These mechanisms reduce discomfort but can distance him from empathy and spontaneity.
+    </p>
+    <p>
+      Early experiences with praise for correctness may have created unconscious expectations that love is conditional on achievement. 
+      This can produce perfectionism and fear of humiliation, explaining why surprises feel threatening and why he clings to rituals. 
+      Mentors serve as symbolic father-figures; success with them satisfies deep wishes for approval, while disagreements can feel like personal rejection, eliciting disproportionate reactions.
+    </p>
+    <p>
+      The psychodynamic lens doesn’t claim that Sheldon consciously chooses rigidity; rather, it suggests that hidden motives and childhood patterns quietly guide him. 
+      Its value lies in revealing meaning behind habits—why order soothes him, why intellect becomes armour, and why relationships can be both cherished and puzzling. 
+      The limitation is testability: unconscious processes are hard to measure. 
+      Still, as a narrative of inner life, the approach explains Sheldon’s blend of brilliance, anxiety, and heartfelt loyalty.
+    </p>
+  </section>
+
+  <!-- ================= Cognitive ================= -->
+  <section id="cognitive" class="approach" role="tabpanel" tabindex="-1" aria-labelledby="cognitive-link">
     <h3>Cognitive Approach</h3>
-    <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Cognitive Sheldon">
-    <p>The cognitive approach focuses on internal thought processes...</p>
-  </div>
+    <p class="lead">How Sheldon thinks: schemas, memory systems, and problem-solving strategies.</p>
+
+    <div class="gallery">
+      <img src="https://m.media-amazon.com/images/I/81nktJ5Gk-L._AC_SY679_.jpg" alt="Sheldon with books" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81F+8fYQpZL._AC_SY679_.jpg" alt="Sheldon thinking deeply" loading="lazy">
+      <img src="https://m.media-amazon.com/images/I/81Yh7z5mPzL._AC_SY679_.jpg" alt="Sheldon smiling" loading="lazy">
+    </div>
+
+    <p>
+      The cognitive approach explains behaviour by examining internal mental processes—attention, memory, language, and reasoning. 
+      Sheldon’s mind excels at building precise <em>schemas</em> (mental frameworks) for mathematics, physics, and daily routines. 
+      These schemas organise new information quickly, allowing him to recognise patterns and retrieve rules at remarkable speed. 
+      Powerful working memory lets him juggle steps in complex problems, while long-term memory stores formulas, facts, and examples in well-indexed “maps.”
+    </p>
+    <p>
+      He also demonstrates sophisticated metacognition: he thinks about how he thinks. 
+      He plans study schedules, tests himself, and monitors errors, choosing strategies—like chunking, visualising, or rehearsal—that boost accuracy. 
+      Algorithms appeal to him because they minimise ambiguity; given clear inputs, he can produce reliable outputs. 
+      When tasks lack rules, however, his rigid schemas can slow adaptation. 
+      Figurative language or shifting social norms violate expectations, so he searches for explicit rules and sometimes misreads intentions.
+    </p>
+    <p>
+      Attention is another strength and constraint. 
+      He can hyper-focus on problems, filtering distractions, which accelerates expertise. 
+      Yet rapid switching or noisy settings overload his system, reducing flexibility. 
+      Cognitive biases also appear: confirmation bias (preferring evidence that fits existing theories) and anchoring (clinging to first impressions) occasionally colour judgments, especially in social contexts where data feel “messy.”
+    </p>
+    <p>
+      Overall, the cognitive lens highlights a mind optimised for structure: brilliant at rule-governed reasoning, memory organisation, and deliberate practice; less comfortable with ambiguity and implicit cues. 
+      Understanding these strengths and limits explains both Sheldon’s academic superpowers and his social misunderstandings—and suggests why gentle scaffolding and clear expectations help him thrive.
+    </p>
+  </section>
 </main>
 
-<footer>
-  © 2025 Juno — Psychology Project: Understanding Young Sheldon
-</footer>
+<footer>© 2025 Juno — Psychology Project: Understanding Young Sheldon</footer>
 
 <script>
-  // Wait until the page fully loads
-  document.addEventListener("DOMContentLoaded", () => {
-    const tabs = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll(".approach");
+  // Show a panel when its tab is clicked
+  function showPanel(id){
+    // Hide all panels
+    document.querySelectorAll('.approach').forEach(p=>{
+      p.style.display='none';
+    });
+    // Reset tab selection
+    document.querySelectorAll('nav [role="tab"]').forEach(b=>{
+      b.setAttribute('aria-selected','false');
+    });
+    // Show target
+    const panel=document.getElementById(id);
+    if(panel){
+      panel.style.display='block';
+      panel.focus({preventScroll:true});
+      panel.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    // Mark active tab
+    const tab=document.getElementById(id+'-link');
+    if(tab){ tab.setAttribute('aria-selected','true'); }
+  }
 
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        sections.forEach(sec => sec.style.display = "none");
-        tabs.forEach(link => link.classList.remove("active"));
-        tab.classList.add("active");
-
-        const targetId = tab.id.replace("-link", "");
-        const section = document.getElementById(targetId);
-        if (section) {
-          section.style.display = "block";
-          section.scrollIntoView({ behavior: "smooth" });
-        }
+  // Attach listeners after DOM is ready
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.querySelectorAll('nav [role="tab"]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const id = btn.id.replace('-link','');
+        showPanel(id);
       });
     });
+    // Optional: open the first tab on load
+    // showPanel('behaviourist');
   });
 </script>
-
 </body>
 </html>
 
