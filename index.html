@@ -29,6 +29,7 @@
       color: #555;
       font-weight: 600;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -51,6 +52,16 @@
       margin: 1rem;
     }
 
+    .approach {
+      display: none;
+      margin-top: 1rem;
+      text-align: left;
+      padding: 1rem;
+      background-color: #f0f0ff;
+      border-left: 4px solid #6a5acd;
+      border-radius: 6px;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -67,7 +78,7 @@
     <a href="#">Social Learning</a>
     <a href="#">Biological</a>
     <a href="#">Psychodynamic</a>
-    <a href="#">Cognitive</a>
+    <a id="cognitive-link">Cognitive</a>
   </nav>
 
   <main>
@@ -81,11 +92,35 @@
 
     <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Young_Sheldon_title_card.jpg" alt="Young Sheldon">
     <img src="https://static.wikia.nocookie.net/youngsheldon/images/1/1a/Cooper_Family.jpg" alt="Sheldon with family">
+
+    <!-- Cognitive Approach Section -->
+    <div id="cognitive-approach" class="approach">
+      <h3>Cognitive Approach</h3>
+      <p>
+        The cognitive approach focuses on mental processes such as thinking, memory, and problem-solving. In <em>Young Sheldon</em>, we can see how Sheldon's incredible memory, logical thinking, and attention to detail influence his behaviour and interactions. This approach helps explain why Sheldon often relies on reasoning rather than emotions to navigate social situations.
+      </p>
+    </div>
   </main>
 
   <footer>
     © 2025 Juno Seok | Psychology Project
   </footer>
+
+  <script>
+    const cognitiveLink = document.getElementById('cognitive-link');
+    const cognitiveSection = document.getElementById('cognitive-approach');
+
+    cognitiveLink.addEventListener('click', () => {
+      // toggle visibility
+      if (cognitiveSection.style.display === 'block') {
+        cognitiveSection.style.display = 'none';
+      } else {
+        cognitiveSection.style.display = 'block';
+        cognitiveSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 </html>
+
 
